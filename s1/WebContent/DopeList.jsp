@@ -1,14 +1,13 @@
-@@ -0,0 +1,66 @@
+
 <%@page import="java.sql.DriverManager"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.Statement"%>
 <%@page import="java.sql.Connection"%>
 
 <%
-String id = request.getParameter("userId");
+String username = request.getParameter("username");
 String driverName = "com.mysql.jdbc.Driver";
-String connectionUrl = "jdbc:mysql://localhost:3306/";
-String dbName = "mysql_database";
+String connectionUrl = "jdbc:mysql://localhost:3306/mysql_database";
 String userId = "mukarram";
 String password = "mysql1234";
 
@@ -22,8 +21,23 @@ Connection connection = null;
 Statement statement = null;
 ResultSet resultSet = null;
 %>
-<h2 align="center"><font><strong>User list</strong></font></h2>
-<table align="center" cellpadding="5" cellspacing="5" border="1" style="color:#ffffff; font-size:170%; font-family:courier;text-align:center;">>
+<head>
+<meta charset="ISO-8859-1">
+<title>DOPE</title>
+<style>
+table,td,tr{
+padding:5px;
+border:2px solid white;
+border-collapse:collapse;
+}
+</style>
+</head>
+<body style="background-image:url('backG.JPG');background-repeat: no-repeat; background-size: 100% auto;">
+<h1 align="center" style="color:#ffffff; font-size:300%; font-family:courier;text-align:center;"><font><strong>User list</strong></font></h1>
+<br>
+<br>
+<br>
+<table align="center" style="color:#ffffff; font-size:100%; font-family:courier;text-align:center;">
 <tr>
 
 </tr>
@@ -38,7 +52,7 @@ ResultSet resultSet = null;
 </tr>
 <%
 try{ 
-connection = DriverManager.getConnection(connectionUrl+dbName, userId, password);
+connection = DriverManager.getConnection(connectionUrl, userId, password);
 statement=connection.createStatement();
 String sql ="SELECT * FROM dope_acc";
 
@@ -47,8 +61,8 @@ while(resultSet.next()){
 %>
 <tr>
 
-<td><%=resultSet.getString("firstName") %></td>
-<td><%=resultSet.getString("lastName") %></td>
+<td><%=resultSet.getString("first_name") %></td>
+<td><%=resultSet.getString("last_name") %></td>
 <td><%=resultSet.getString("username") %></td>
 <td><%=resultSet.getString("email") %></td>
 <td><%=resultSet.getString("password") %></td>
@@ -59,9 +73,10 @@ while(resultSet.next()){
 
 <% 
 }
-
+connection.close();
 } catch (Exception e) {
 e.printStackTrace();
 }
 %>
 </table>
+</body>
