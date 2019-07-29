@@ -19,7 +19,7 @@ border-radius:6px;
 </head>
 <body style="background-image:url('backG.JPG');background-repeat: no-repeat; background-size: 100% auto;">
 <div align="center">
-  <h1 style="color:#ffffff;font-size:500%; font-family:courier;text-align:center;">Home Page</h1>
+  <h1 style="color:#ffffff;font-size:500%; font-family:courier;text-align:center;">DOPE</h1>
   <br>
   <br>
   <br>
