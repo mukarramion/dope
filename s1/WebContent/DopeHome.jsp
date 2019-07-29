@@ -19,12 +19,10 @@ border-radius:6px;
 </head>
 <body style="background-image:url('backG.JPG');background-repeat: no-repeat; background-size: 100% auto;">
 <div align="center">
-  <h1 style="color:#ffffff;font-size:500%; font-family:courier;text-align:center;">DOPE</h1>
+  <h1 style="color:#ffffff;font-size:450%; font-family:courier;text-align:center;">DOPE</h1>
   <br>
   <br>
-  <br>
-  <br>
-<table  style="color:#ffffff; font-size:170%; font-family:courier;text-align:center;" cellpadding="8" cellspacing="8">
+<table  style="color:#ffffff; font-size:150%; font-family:courier;text-align:center;" cellpadding="10" cellspacing="10">
 <tr> <td><a href = "DopeRegister.jsp" >Registration</a> </td> </tr>
     <tr> <td><a href = "DopeList.jsp" >User-List</a> </td> </tr>
 </table>
