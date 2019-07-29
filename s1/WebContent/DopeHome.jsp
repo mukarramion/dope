@@ -21,7 +21,6 @@ border-radius:6px;
 <div align="center">
   <h1 style="color:#ffffff;font-size:450%; font-family:courier;text-align:center;">DOPE</h1>
   <br>
-  <br>
 <table  style="color:#ffffff; font-size:150%; font-family:courier;text-align:center;" cellpadding="10" cellspacing="10">
 <tr> <td><a href = "DopeRegister.jsp" >Registration</a> </td> </tr>
     <tr> <td><a href = "DopeList.jsp" >User-List</a> </td> </tr>
