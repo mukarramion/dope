@@ -24,8 +24,9 @@ border-radius:6px;
   <br>
   <br>
   <br>
-<table  style="color:#ffffff; font-size:170%; font-family:courier;text-align:center;">
+<table  style="color:#ffffff; font-size:170%; font-family:courier;text-align:center;" cellpadding="8" cellspacing="8">
 <tr> <td><a href = "DopeRegister.jsp" >Registration</a> </td> </tr>
+    <tr> <td><a href = "DopeList.jsp" >User-List</a> </td> </tr>
 </table>
 </div>
 </body>
