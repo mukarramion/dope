@@ -7,9 +7,13 @@
 <servlet>
 <servlet-name>DOPE</servlet-name>
 <servlet-class>net.web.dopeServlet</servlet-class>
+<servlet-name>Download</servlet-name>
+<servlet-class>net.web.DownloadServlet</servlet-class>
 </servlet>
 <servlet-mapping>
 <servlet-name>DOPE</servlet-name>
 <url-pattern>/register</url-pattern>
+<servlet-name>Download</servlet-name>
+<url-pattern>/download</url-pattern>
 </servlet-mapping>
 </web-app>

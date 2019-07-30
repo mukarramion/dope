@@ -3,7 +3,10 @@ package net.dao;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import net.model.dope;
 
@@ -53,5 +56,35 @@ public class dopeDao {
                 }
             }
         }
+    }
+    
+    public List<dope> getDope() throws ClassNotFoundException {
+        String INSERT_USERS_SQL = "SELECT * FROM dope_acc;";
+
+        
+        List<dope> list = new ArrayList<dope>();
+        Class.forName("com.mysql.cj.jdbc.Driver");
+
+      
+		ResultSet result;
+		try (Connection connection = DriverManager
+            .getConnection("jdbc:mysql://localhost:3306/mysql_database", "mukarram", "mysql1234");
+
+            // Step 2:Create a statement using connection object
+            PreparedStatement preparedStatement = connection.prepareStatement(INSERT_USERS_SQL)) {
+            System.out.println(preparedStatement);
+            // Step 3: Execute the query or update query
+            result = preparedStatement.executeQuery();
+            while(result.next()){
+            	dope dope = new dope();
+            	//TODO: set the value
+            	
+            	list.add(dope);
+            }
+        } catch (SQLException e) {
+            // process sql exception
+            printSQLException(e);
+        }
+        return list;
     }
 }
