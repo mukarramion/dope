@@ -37,7 +37,7 @@ public class dopeServlet extends HttpServlet {
         d.setPassword(password);
         d.setContact(contact);
         d.setEmail(email);
-        d.setDOB(dob);
+        d.setDob(dob);
 
         try {
             dopeDao.registerDOPE(d);
@@ -57,9 +57,17 @@ public class dopeServlet extends HttpServlet {
     	        	String username = request.getParameter("id");
     	        	System.out.println("---->"+username);
     	        	//TODO: Let the username base data
-    	        	dope d = new dope();
-    	        	d.setFirstName("Kailash");
-    	        	request.setAttribute("user", d);  
+ 	        	
+    	        	dope d;
+					try {
+						d = dopeDao.getByName(username);
+						request.setAttribute("user", d);
+					} catch (ClassNotFoundException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+    	        	
+    	        	
     	        	request.setAttribute("action", action);
         	        getServletContext().getRequestDispatcher("/DopeRegister.jsp").forward(request, response);
     	        }

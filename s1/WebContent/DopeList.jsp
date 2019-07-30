@@ -27,7 +27,6 @@ border-collapse:collapse;
 <td><b>LastName</b></td>
 <td><b>Username</b></td>
 <td><b>Email</b></td>
-<td><b>Password</b></td>
 <td><b>Dob</b></td>
 <td><b>Contact</b></td>
 <td><b>Edit</b></td>

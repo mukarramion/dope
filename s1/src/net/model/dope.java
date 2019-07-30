@@ -40,13 +40,14 @@ public class dope {
 	        this.password = password;
 	    }
 	
-	    public String getDOB() {
-	        return dob;
-	    }
-	    public void setDOB(String dob) {
-	        this.dob = dob;
-	    }
-	    public String getContact() {
+	    
+	    public String getDob() {
+			return dob;
+		}
+		public void setDob(String dob) {
+			this.dob = dob;
+		}
+		public String getContact() {
 	        return contact;
 	    }
 	    public void setContact(String contact) {

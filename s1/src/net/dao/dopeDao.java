@@ -5,6 +5,8 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,7 +30,7 @@ public class dopeDao {
             preparedStatement.setString(3, dope.getUsername());
             preparedStatement.setString(4, dope.getEmail());
             preparedStatement.setString(5, dope.getPassword());
-            preparedStatement.setString(6, dope.getDOB());
+            preparedStatement.setString(6, dope.getDob());
             preparedStatement.setString(7, dope.getContact());
 
             System.out.println(preparedStatement);
@@ -42,6 +44,7 @@ public class dopeDao {
         return result;
     }
 
+	
     public void printSQLException(SQLException ex) {
         for (Throwable e: ex) {
             if (e instanceof SQLException) {
@@ -57,9 +60,43 @@ public class dopeDao {
             }
         }
     }
-    
+   
+    public dope getByName(String name) throws ClassNotFoundException {
+        String INSERT_USERS_SQL = "select first_name,last_name,username,email,dob,contact from dope_acc where username=?";
+        
+
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        dope dope = new dope();
+        ResultSet result;
+		try { 
+        	Connection connection = DriverManager
+            .getConnection("jdbc:mysql://localhost:3306/mysql_database", "mukarram", "mysql1234");
+
+            // Step 2:Create a statement using connection object
+            PreparedStatement preparedStatement = connection.prepareStatement(INSERT_USERS_SQL);
+            preparedStatement.setString(1, name);
+        	result = preparedStatement.executeQuery();
+        	
+        	while (result.next()) {
+				dope.setFirstName(result.getString("first_name"));
+				dope.setLastName(result.getString("last_name"));
+				dope.setUsername(result.getString("username"));
+				dope.setEmail(result.getString("email"));
+				
+				dope.setDob(result.getString("dob"));
+				dope.setContact(result.getString("contact"));
+			}
+        } catch (SQLException e) {
+            // process sql exception
+            printSQLException(e);
+        }
+
+        return  dope;
+
+
+}
     public List<dope> getDope() throws ClassNotFoundException {
-        String INSERT_USERS_SQL = "SELECT * FROM dope_acc;";
+        String INSERT_USERS_SQL = "SELECT first_name,last_name,username,email,dob,contact FROM dope_acc;";
 
         
         List<dope> list = new ArrayList<dope>();
@@ -82,7 +119,7 @@ public class dopeDao {
 				dope.setLastName(result.getString("last_name"));
 				dope.setUsername(result.getString("username"));
 				dope.setEmail(result.getString("email"));
-				dope.setDOB(result.getString("dob"));
+				dope.setDob(result.getString("dob"));
 				dope.setContact(result.getString("contact"));
             	list.add(dope);
             }

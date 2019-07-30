@@ -42,7 +42,16 @@ input
      </tr>
     <tr>
      <td>Last Name</td>
-     <td><input type="text" name="lastName" pattern="[A-Za-z]+" required /></td>
+     <c:if test="${action eq 'Add'}">
+    		<td><input type="text" name="firstName" pattern="[A-Za-z]+" required /></td>
+		</c:if>
+     	<c:if test="${action eq 'view'}">
+     		<td><input type="text" name="firstName" value="${user.lastName}" disabled="disabled" /></td>
+		</c:if>
+		<c:if test="${action eq 'Edit'}">
+		<td><input type="text" name="firstName" pattern="[A-Za-z]+" required value="${user.lastName}" /></td>
+			</c:if>
+    
     </tr>
     <tr>
      <td>UserName</td>
@@ -58,25 +67,58 @@ input
          </tr>
     <tr>
      <td>Email-ID</td>
-     <td><input type="email" name="email" required /></td>
+     <c:if test="${action eq 'Add'}">
+    		<td><input type="text" name="firstName" pattern="[A-Za-z]+" required /></td>
+		</c:if>
+     	<c:if test="${action eq 'view'}">
+     		<td><input type="text" name="firstName" value="${user.email}" disabled="disabled" /></td>
+		</c:if>
+		<c:if test="${action eq 'Edit'}">
+		<td><input type="text" name="firstName" pattern="[A-Za-z]+" required value="${user.email}" /></td>
+			</c:if>
     </tr>
     <tr>
      <td>Password</td>
-     <td><input type="password" name="password" required/></td>
+    <c:if test="${action eq 'Add'}">
+    		<td><input type="text" name="firstName" pattern="[A-Za-z]+" required /></td>
+		</c:if>
+     	<c:if test="${action eq 'view'}">
+     		<td><input type="text" name="firstName" value="${user.password}" disabled="disabled" /></td>
+		</c:if>
+		<c:if test="${action eq 'Edit'}">
+		<td><input type="text" name="firstName" pattern="[A-Za-z]+" required value="${user.password}" /></td>
+			</c:if>
     </tr>
     <tr>
      <td>Date of birth</td>
-     <td><input type="date" name="dob" required /></td>
+    <c:if test="${action eq 'Add'}">
+    		<td><input type="text" name="firstName" pattern="[A-Za-z]+" required /></td>
+		</c:if>
+     	<c:if test="${action eq 'view'}">
+     		<td><input type="text" name="firstName" value="${user.dob}" disabled="disabled" /></td>
+		</c:if>
+		<c:if test="${action eq 'Edit'}">
+		<td><input type="text" name="firstName" pattern="[A-Za-z]+" required value="${user.dob}" /></td>
+			</c:if>
     </tr>
     <tr>
      <td>Contact No</td>
-     <td><input type="text" name="contact" pattern="[0-9]{10}" required/></td>
+    <c:if test="${action eq 'Add'}">
+    		<td><input type="text" name="firstName" pattern="[A-Za-z]+" required /></td>
+		</c:if>
+     	<c:if test="${action eq 'view'}">
+     		<td><input type="text" name="firstName" value="${user.contact}" disabled="disabled" /></td>
+		</c:if>
+		<c:if test="${action eq 'Edit'}">
+		<td><input type="text" name="firstName" pattern="[A-Za-z]+" required value="${user.contact}" /></td>
+			</c:if>
     </tr>
    </table>
    <br/>
+   <c:if test="${action eq 'Add' || 'Edit' eq action}">
    <input type="submit" value="Submit" style="background-color: #4CAF50;color: white;text-align:center;" />
    &nbsp;
-   <input type="reset" value="Reset" style="background-color: #4CAF50;color: white;text-align:center;" />
+   </c:if>
   </form>
  </div>
 </body>
