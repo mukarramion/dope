@@ -1,14 +1,14 @@
 package net.model;
-import java.io.Serializable;
-public class dope implements Serializable{
-	 public static final long serialVersionUID = 1L ;
-	   public String firstName;
-	    public String lastName;
-	    public String username;
-	    public String password;
-	    public String email;
-	    public String dob;
-	    public String contact;
+
+public class dope {
+	
+	   private String firstName;
+	   private String lastName;
+	   private String username;
+	   private String password;
+	   private String email;
+	   private String dob;
+	   private String contact;
 	    public String getFirstName() {
 	        return firstName;
 	    }

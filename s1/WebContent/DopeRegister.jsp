@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
- pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,19 +21,41 @@ input
  <div align="center">
   <h1 style="color:#ffffff; font-family:courier;text-align:center;">Dope SignUp</h1>
 <form action="<%= request.getContextPath() %>/register" method="post">
+	<input type="hidden" name="actionvalue" value="${action}" />
    <table style="color:#fff; font-family:courier;">
     <tr>
+ 
      <td>First Name</td>
-     <td><input type="text" name="firstName" pattern="[A-Za-z]+" required /></td>
-    </tr>
+    	<c:if test="${action eq 'Add'}">
+    		<td><input type="text" name="firstName" pattern="[A-Za-z]+" required /></td>
+		</c:if>
+     	<c:if test="${action eq 'view'}">
+     		<td><input type="text" name="firstName" value="${user.firstName}" disabled="disabled" /></td>
+		</c:if>
+		<c:if test="${action eq 'Edit'}">
+		<td><input type="text" name="firstName" pattern="[A-Za-z]+" required value="${user.firstName}" /></td>
+			</c:if>
+   	
+   	 
+   
+    
+     </tr>
     <tr>
      <td>Last Name</td>
      <td><input type="text" name="lastName" pattern="[A-Za-z]+" required /></td>
     </tr>
     <tr>
      <td>UserName</td>
-     <td><input type="text" name="username" pattern="[A-Za-z0-9]+" required /></td>
-    </tr>
+     <c:if test="${action eq 'Add'}">
+    		<td><input type="text" name="username" pattern="[A-Za-z]+" required /></td>
+		</c:if>
+     	<c:if test="${action eq 'view'}">
+     		<td><input type="text" name="username" value="${user.firstName}" disabled="disabled" /></td>
+		</c:if>
+		<c:if test="${action eq 'Edit'}">
+		<td><input type="text" name="username"  required value="${user.firstName}" disabled="disabled" /></td>
+			</c:if>
+         </tr>
     <tr>
      <td>Email-ID</td>
      <td><input type="email" name="email" required /></td>

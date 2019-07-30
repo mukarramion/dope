@@ -48,4 +48,21 @@ public class dopeServlet extends HttpServlet {
 
         response.sendRedirect("dopedetails.jsp");
     }
+    public void doGet(HttpServletRequest request, HttpServletResponse response)
+    	    throws ServletException, IOException {
+
+    	        String action = request.getParameter("action");
+    	        System.out.println("---->"+action);
+    	        if(action != null && ("Edit".equalsIgnoreCase(action) || "View".equalsIgnoreCase(action)) ) {
+    	        	String username = request.getParameter("id");
+    	        	System.out.println("---->"+username);
+    	        	//TODO: Let the username base data
+    	        	dope d = new dope();
+    	        	d.setFirstName("Kailash");
+    	        	request.setAttribute("user", d);
+    	        	
+    	        }
+    	        request.setAttribute("action", action);
+    	        getServletContext().getRequestDispatcher("/DopeRegister.jsp").forward(request, response);
+    	    }
 }

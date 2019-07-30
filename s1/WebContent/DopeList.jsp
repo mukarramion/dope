@@ -31,12 +31,19 @@ border:2px solid white;
 border-collapse:collapse;
 }
 </style>
+<script>
+onview(name){
+	
+	
+}
+</script>
 </head>
 <body style="background-image:url('backG.JPG');background-repeat: no-repeat; background-size: 100% auto;">
 <h1 align="center" style="color:#ffffff; font-size:300%; font-family:courier;text-align:center;"><font><strong>User list</strong></font></h1>
 <br>
 <br>
 <br>
+
 <table align="center" style="color:#ffffff; font-size:100%; font-family:courier;text-align:center;">
 <tr>
 
@@ -49,6 +56,8 @@ border-collapse:collapse;
 <td><b>Password</b></td>
 <td><b>Dob</b></td>
 <td><b>Contact</b></td>
+<td><b>Edit</b></td>
+<td><b>View</b></td>
 </tr>
 <%
 try{ 
@@ -68,6 +77,8 @@ while(resultSet.next()){
 <td><%=resultSet.getString("password") %></td>
 <td><%=resultSet.getString("dob") %></td>
 <td><%=resultSet.getString("contact") %></td>
+<td><a href="${pageContext.request.contextPath}/register?id=<%=resultSet.getString("username") %>&action=Edit">Edit</a></td>
+<td><a href="${pageContext.request.contextPath}/register?id=<%=resultSet.getString("username") %>&action=view">View</a></td>
 
 </tr>
 
@@ -79,4 +90,5 @@ e.printStackTrace();
 }
 %>
 </table>
+</form>
 </body>

@@ -22,7 +22,7 @@ border-radius:6px;
   <h1 style="color:#ffffff;font-size:450%; font-family:courier;text-align:center;">DOPE</h1>
   <br>
 <table  style="color:#ffffff; font-size:150%; font-family:courier;text-align:center;" cellpadding="10" cellspacing="10">
-<tr> <td><a href = "DopeRegister.jsp" >Registration</a> </td> </tr>
+<tr> <td><a href = "<%= request.getContextPath() %>/register?action=Add" >Registration</a> </td> </tr>
     <tr> <td><a href = "DopeList.jsp" >User-List</a> </td> </tr>
 </table>
 </div>
