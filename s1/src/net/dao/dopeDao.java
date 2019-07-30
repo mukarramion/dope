@@ -78,7 +78,12 @@ public class dopeDao {
             while(result.next()){
             	dope dope = new dope();
             	//TODO: set the value
-            	
+            	dope.setFirstName(result.getString("first_name"));
+				dope.setLastName(result.getString("last_name"));
+				dope.setUsername(result.getString("username"));
+				dope.setEmail(result.getString("email"));
+				dope.setDOB(result.getString("dob"));
+				dope.setContact(result.getString("contact"));
             	list.add(dope);
             }
         } catch (SQLException e) {

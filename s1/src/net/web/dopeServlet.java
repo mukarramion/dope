@@ -59,10 +59,23 @@ public class dopeServlet extends HttpServlet {
     	        	//TODO: Let the username base data
     	        	dope d = new dope();
     	        	d.setFirstName("Kailash");
-    	        	request.setAttribute("user", d);
-    	        	
+    	        	request.setAttribute("user", d);  
+    	        	request.setAttribute("action", action);
+        	        getServletContext().getRequestDispatcher("/DopeRegister.jsp").forward(request, response);
     	        }
+    	        else if(action != null && ("List".equalsIgnoreCase(action)) ) {
+    	        	//TODO: Set data from db
+    	        	try {
+    	        		request.setAttribute("user",dopeDao.getDope());
+    	            } catch (Exception e) {
+    	                // TODO Auto-generated catch block
+    	                e.printStackTrace();
+    	            }
+    	        	
+    	        	getServletContext().getRequestDispatcher("/DopeList.jsp").forward(request, response);
+    	        }else {
     	        request.setAttribute("action", action);
     	        getServletContext().getRequestDispatcher("/DopeRegister.jsp").forward(request, response);
+    	        }
     	    }
 }
