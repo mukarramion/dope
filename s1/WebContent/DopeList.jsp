@@ -9,16 +9,26 @@ padding:5px;
 border:2px solid white;
 border-collapse:collapse;
 }
+#d{
+background-color:#4CAF50 ;
+color:white;
+padding: 14px 25px;
+text-align: center;
+text-decoration:  none;
+display: inline-block;
+border-radius:6px;
+}
 </style>
 
 </head>
 <body style="background-image:url('backG.JPG');background-repeat: no-repeat; background-size: 100% auto;">
 <h1 align="center" style="color:#ffffff; font-size:300%; font-family:courier;text-align:center;"><font><strong>User list</strong></font></h1>
+<a id="d" href = "<%= request.getContextPath() %>/download" >Download</a>
 <br>
 <br>
 <br>
 
-<table style="color:#ffffff; font-size:100%; font-family:courier;text-align:center;">
+<table align="center" style="color:#ffffff; font-size:100%; font-family:courier;text-align:center;">
 <tr>
 
 </tr>
