@@ -31,7 +31,6 @@ public class DownloadServlet extends HttpServlet {
 				l.addAll(d1.getDope());
 				
 				FileWriter writer = new FileWriter(filepath+filename); 
-				writer.write("   FirstName   "+"\t"+"   LastName   "+"\t"+"   Username   "+"\t"+"   Email   "+"\t"+"   Dob   "+"\t"+"   Contact   "+ System.lineSeparator());
 				for (int i=0; i<l.size(); i++){
 				  writer.write(l.get(i).getFirstName()+"   "+l.get(i).getLastName()+"   "+l.get(i).getUsername()+"   "+l.get(i).getEmail()+"   "+l.get(i).getDob()+"   "+l.get(i).getContact()+ System.lineSeparator());
 				}
