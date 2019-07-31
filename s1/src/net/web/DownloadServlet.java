@@ -32,7 +32,7 @@ public class DownloadServlet extends HttpServlet {
 				
 				FileWriter writer = new FileWriter(filepath+filename); 
 				for (int i=0; i<l.size(); i++){
-				  writer.write(l.get(i).getFirstName()+"   "+l.get(i).getLastName()+"   "+l.get(i).getUsername()+"   "+l.get(i).getEmail()+"   "+l.get(i).getDob()+"   "+l.get(i).getContact()+ System.lineSeparator());
+				  writer.write(l.get(i).getFirstName()+"   "+l.get(i).getLastName()+"   "+l.get(i).getUsername()+"   "+l.get(i).getEmail()+"   "+l.get(i).getDob()+"   "+l.get(i).getContact()+ System.lineSeparator()+System.lineSeparator());
 				}
 				writer.close();
 		} catch ( Exception e) {
