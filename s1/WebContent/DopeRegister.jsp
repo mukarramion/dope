@@ -62,7 +62,10 @@ input
      		<td><input type="text" name="username" value="${user.username}" disabled="disabled" /></td>
 		</c:if>
 		<c:if test="${action eq 'Edit'}">
-		<td><input type="text" name="username"  required value="${user.username}" disabled="disabled" /></td>
+		<td>
+		<input type="text" name="username"  required value="${user.username}" disabled="disabled" />
+		<input type="hidden" name="usernamevalue"  required value="${user.username}"/>
+		</td>
 			</c:if>
          </tr>
     <tr>
@@ -74,9 +77,10 @@ input
      		<td><input type="email" name="email" value="${user.email}" disabled="disabled" /></td>
 		</c:if>
 		<c:if test="${action eq 'Edit'}">
-		<td><input type="email" name="email"  required value="${user.email}" disabled="disabled" /></td>
+		<td><input type="email" name="email"  required value="${user.email}" /></td>
 			</c:if>
     </tr>
+    <c:if test="${action ne 'Edit'}">
     <tr>
      <td>Password</td>
     <c:if test="${action eq 'Add'}">
@@ -84,11 +88,9 @@ input
 		</c:if>
      	<c:if test="${action eq 'view'}">
      		<td><input type="password" name="password" value="${user.password}" disabled="disabled" /></td>
-		</c:if>
-		<c:if test="${action eq 'Edit'}">
-		<td><input type="password" name="password"  required value="${user.password}" disabled="disabled" /></td>
-			</c:if>
+		</c:if>		
     </tr>
+    </c:if>
     <tr>
      <td>Date of birth</td>
     <c:if test="${action eq 'Add'}">
@@ -117,6 +119,10 @@ input
    <br/>
    <c:if test="${action eq 'Add' || 'Edit' eq action}">
    <input type="submit" value="Submit" style="background-color: #4CAF50;color: white;text-align:center;" />
+   &nbsp;
+   </c:if>
+   <c:if test="${action eq 'view'}">
+  <a href = "DopeHome.jsp" style="color:#ffffff; font-family:courier;text-align:center;">Home</a>
    &nbsp;
    </c:if>
   </form>

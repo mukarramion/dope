@@ -129,4 +129,29 @@ public class dopeDao {
         }
         return list;
     }
+    
+    public boolean updateUser(dope dope) throws SQLException {
+        boolean rowUpdated;
+        System.out.println(dope.toString());
+        
+        final String UPDATE_USERS_SQL = "update dope_acc set first_name=?, last_name=?, dob=? , contact=? where username = ?;";
+        
+        try (Connection connection = DriverManager
+                .getConnection("jdbc:mysql://localhost:3306/mysql_database", "mukarram", "mysql1234");
+        		
+        PreparedStatement statement = connection.prepareStatement(UPDATE_USERS_SQL);) {
+            statement.setString(1, dope.getFirstName());
+            statement.setString(2, dope.getLastName());
+            statement.setString(3, dope.getDob());
+            statement.setString(4, dope.getContact());
+            statement.setString(5, dope.getUsername());
+            rowUpdated = statement.executeUpdate() > 0;
+        }
+        return rowUpdated;
+    }
+
+    
+
+
+	
 }
