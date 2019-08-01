@@ -23,7 +23,6 @@ border-radius:6px;
 </head>
 <body style="background-image:url('backG.JPG');background-repeat: no-repeat; background-size: 100% auto;">
 <h1 align="center" style="color:#ffffff; font-size:300%; font-family:courier;text-align:center;"><font><strong>User list</strong></font></h1>
-<a id="d" href = "<%= request.getContextPath() %>/download" >Download</a>
 <br>
 <br>
 <br>
@@ -59,4 +58,9 @@ border-radius:6px;
 </c:forEach>
 
 </table>
+<br>
+<br>
+<div align="center">
+<a  id="d" href = "<%= request.getContextPath() %>/download" >Download</a>
+</div>
 </body>

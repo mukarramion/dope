@@ -15,6 +15,15 @@ input
   border: none;
   border-radius: 4px;
 }
+a{
+background-color:#4CAF50 ;
+color:white;
+padding: 14px 25px;
+text-align: center;
+text-decoration:  none;
+display: inline-block;
+border-radius:6px;
+}
 </style>
 </head>
 <body style="background-image:url('backG.JPG');background-repeat: no-repeat; background-size: 100% auto;">

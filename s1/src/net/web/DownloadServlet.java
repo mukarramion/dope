@@ -18,9 +18,9 @@ public class DownloadServlet extends HttpServlet {
 	       
 	   protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	      // TODO Auto-generated method stub
-		      response.setContentType("text/html");  
+		      response.setContentType("text/csv");  
 		      PrintWriter out = response.getWriter();  
-		      String filename = "list.txt";   
+		      String filename = "list.csv";   
 		      String filepath = "d:\\dope\\";   
 		      response.setContentType("APPLICATION/OCTET-STREAM");   
 		      response.setHeader("Content-Disposition","attachment; filename=\"" + filename + "\"");
@@ -31,8 +31,31 @@ public class DownloadServlet extends HttpServlet {
 				l.addAll(d1.getDope());
 				
 				FileWriter writer = new FileWriter(filepath+filename); 
+				  writer.write("FirstName");
+				  writer.write(',');
+				  writer.write("LastName");
+				  writer.write(',');
+				  writer.write("Username");
+				  writer.write(',');
+				  writer.write("Email");
+				  writer.write(',');
+				  writer.write("Dob");
+				  writer.write(',');
+				  writer.write("Contact");
+				  writer.write('\n');
 				for (int i=0; i<l.size(); i++){
-				  writer.write(l.get(i).getFirstName()+"   "+l.get(i).getLastName()+"   "+l.get(i).getUsername()+"   "+l.get(i).getEmail()+"   "+l.get(i).getDob()+"   "+l.get(i).getContact()+ System.lineSeparator()+System.lineSeparator());
+				  writer.write(l.get(i).getFirstName());
+				  writer.write(',');
+				  writer.write(l.get(i).getLastName());
+				  writer.write(',');
+				  writer.write(l.get(i).getUsername());
+				  writer.write(',');
+				  writer.write(l.get(i).getEmail());
+				  writer.write(',');
+				  writer.write(l.get(i).getDob());
+				  writer.write(',');
+				  writer.write(l.get(i).getContact());
+				  writer.write('\n');
 				}
 				writer.close();
 		} catch ( Exception e) {
