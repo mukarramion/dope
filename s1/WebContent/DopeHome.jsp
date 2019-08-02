@@ -28,10 +28,13 @@ input
   <h1 style="color:#ffffff;font-size:450%; font-family:courier;text-align:center;">DOPE</h1>
  </div> 
  <div align="center">
- <form action="/search">  
-<input type="text" name="Username"/ placeholder="Username">
+ <form action="<%= request.getContextPath() %>/register" method="post"> 
+ <input type="hidden" name="actionvalue" value="search"> 
+<input type="text" name="Username" placeholder="Username">
 <input type="submit" value="search" style="background-color: #4CAF50;color: white;text-align:center;"/>
- </div> 
+</form>
+ </div>
+  
   <br>
   <div align="center">
 <table  style="color:#ffffff; font-size:150%; font-family:courier;text-align:center;" cellpadding="10" cellspacing="10">

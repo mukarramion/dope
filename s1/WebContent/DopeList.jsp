@@ -59,8 +59,8 @@ border-radius:6px;
 
 </table>
 <br>
-<br>
 <div align="center">
-<a  id="d" href = "<%= request.getContextPath() %>/download" >Download</a>
+<a  id="d" href = "<%= request.getContextPath() %>/download" >Download csv</a>
+<a  id="d" href = "<%= request.getContextPath() %>/download2" >Download pdf</a>
 </div>
 </body>

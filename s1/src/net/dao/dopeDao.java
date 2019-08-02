@@ -21,7 +21,7 @@ public class dopeDao {
         Class.forName("com.mysql.cj.jdbc.Driver");
 
         try (Connection connection = DriverManager
-            .getConnection("jdbc:mysql://localhost:3306/mysql_database", "mukarram", "mysql1234");
+            .getConnection("jdbc:mysql://localhost:3306/mysql_database", "root", "mysql1234");
 
             // Step 2:Create a statement using connection object
             PreparedStatement preparedStatement = connection.prepareStatement(INSERT_USERS_SQL)) {
@@ -66,11 +66,11 @@ public class dopeDao {
         
 
         Class.forName("com.mysql.cj.jdbc.Driver");
-        dope dope = new dope();
+        dope dope = null;
         ResultSet result;
 		try { 
         	Connection connection = DriverManager
-            .getConnection("jdbc:mysql://localhost:3306/mysql_database", "mukarram", "mysql1234");
+            .getConnection("jdbc:mysql://localhost:3306/mysql_database", "root", "mysql1234");
 
             // Step 2:Create a statement using connection object
             PreparedStatement preparedStatement = connection.prepareStatement(INSERT_USERS_SQL);
@@ -78,6 +78,7 @@ public class dopeDao {
         	result = preparedStatement.executeQuery();
         	
         	while (result.next()) {
+        		dope = new dope();
 				dope.setFirstName(result.getString("first_name"));
 				dope.setLastName(result.getString("last_name"));
 				dope.setUsername(result.getString("username"));
@@ -105,7 +106,7 @@ public class dopeDao {
       
 		ResultSet result;
 		try (Connection connection = DriverManager
-            .getConnection("jdbc:mysql://localhost:3306/mysql_database", "mukarram", "mysql1234");
+            .getConnection("jdbc:mysql://localhost:3306/mysql_database", "root", "mysql1234");
 
             // Step 2:Create a statement using connection object
             PreparedStatement preparedStatement = connection.prepareStatement(INSERT_USERS_SQL)) {
@@ -137,7 +138,7 @@ public class dopeDao {
         final String UPDATE_USERS_SQL = "update dope_acc set first_name=?, last_name=?, dob=? , contact=? where username = ?;";
         
         try (Connection connection = DriverManager
-                .getConnection("jdbc:mysql://localhost:3306/mysql_database", "mukarram", "mysql1234");
+                .getConnection("jdbc:mysql://localhost:3306/mysql_database", "root", "mysql1234");
         		
         PreparedStatement statement = connection.prepareStatement(UPDATE_USERS_SQL);) {
             statement.setString(1, dope.getFirstName());
